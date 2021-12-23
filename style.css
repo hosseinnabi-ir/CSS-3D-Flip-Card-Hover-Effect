@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #f3eecf, #f9faf1);
+}
+
+.card, .front-face, .back-face {
+    position: absolute;
+}
+
+.card {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 320px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card .front-face,
+.card .back-face {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: url('front-face-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.card .back-face {
+    transform: rotateY(180deg);
+    background: url('back-face-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card .back-face h2 {
+    margin-top: 40%;
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.card .back-face p {
+    margin-top: 6px;
+    color: #dddddd;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card .back-face .icons {
+    margin-top: 30px;
+}
+
+.card .back-face .icons i {
+    cursor: pointer;
+    color: #d74039;
+    background: #ffffff;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.card:hover > .back-face {
+    transform: rotateY(0deg);
+}
+
+.card:hover > .front-face {
+    transform: rotateY(-180deg);
+}
